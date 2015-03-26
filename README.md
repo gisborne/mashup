@@ -1,24 +1,15 @@
-# README
+Simple demonstration of accessing four different geographical APIs. Go to /events/search, search for some events, then click the little blue i icon at the end of an event to see the weather, nearby wikipedia articles, and highly-rated foursquare drinking establishments nearby.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Config (probably in a config/initializers file) needs to do these:
 
-Things you may want to cover:
+require 'eventful_api'
+EventfulApi.configure do |config|
+  config.app_key = <whatever>
+  config.consumer_key = <whatever>
+  config.consumer_secret = <whatever>
+end
 
-* Ruby version
+FoursquareClientID = <whatever>
+FoursquareClientSecret = <whatever>
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+WikipediaUserName = <whatever>
