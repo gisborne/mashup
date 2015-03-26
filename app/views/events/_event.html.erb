@@ -1,0 +1,26 @@
+<tr>
+  <td>
+    <a href="<%= event['url'] %>"><%= event['title'] %></a>
+  </td>
+  <td>
+    <%= DateTime.strptime(event['start_time'], '%Y-%m-%d %H:%M:%S').to_formatted_s(:short) %>
+  </td>
+  <td>
+    <a href="<%= event['venue_url'] %>"><%= event['venue_name'] %></a>
+  </td>
+  <td>
+    <a href="http://maps.google.com/maps?z=12&t=m&q=loc:<%= event['latitude'] %>+<%= event['longitude'] %>"><%= address_from_event event %></a>
+  </td>
+  <td>
+    <%= render partial: 'map', locals: {event: event} %>
+  </td>
+  <td><% unless (hide_info rescue false) %>
+        <a href="<%= event_path event['id'] %>"><span class="glyphicon glyphicon-info-sign"></span></a>
+        <% end %>
+  </td>
+</tr>
+<tr>
+    <td colspan="5">
+        <%= (event['description'] || '').html_safe %>
+    </td>
+</tr>

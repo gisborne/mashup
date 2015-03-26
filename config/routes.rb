@@ -12,4 +12,7 @@ Mashup::Application.routes.draw do
     
   end
 
+  resources :events do
+    get 'search', on: :collection
+  end
 end

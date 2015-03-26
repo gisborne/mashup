@@ -1,0 +1,4 @@
+<a href="<%= venue[:url] %>"><h2><%= venue[:name] %></h2></a>
+<p>Address:<br>
+<%= (venue[:location] * '<br>').html_safe %></p>
+<p>Tips: <%= venue[:tips] * ' • ' %></p>

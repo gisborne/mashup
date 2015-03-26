@@ -1,0 +1,18 @@
+<table class="table table-hover table-condensed">
+<%= render partial: 'event', locals: {event: @event, hide_info: true} %>
+</table>
+<hr>
+<h1 class="text-center">Forecast:</h1>
+<div class="text-center">
+      <p>Maximum Temperature (F): <%= @weather.at_xpath('//maximumTemperature').try :child %></p>
+      <p>Minimum Temperature (F): <%= @weather.at_xpath('//minimumTemperature').try :child %></p>
+      <p>Rain (inches): <%= @weather.at_xpath('//rainAmount6Hourly').try :child %></p>
+      <p>Relative Humidity: <%= @weather.at_xpath('//relativeHumidity').try :child %></p>
+      <p>Wind: <%= @weather.at_xpath('//windSpeed').try :child %>mph from <%= @weather.at_xpath('//windDirection').try :child %></p>
+</div>
+<hr>
+<h1 class="text-center">Wikipedia</h1>
+<%= render collection: @wikipedia.xpath('geonames/entry'), partial: 'wiki_article' %>
+<hr>
+<h1 class="text-center">Drinks after!</h1>
+<%= render collection: @venues, partial: 'venue' %>

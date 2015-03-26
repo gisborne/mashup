@@ -1,0 +1,2 @@
+<a href="<%= wiki_article.at_xpath('wikipediaUrl').child.to_s.html_safe %>"><h2><%= wiki_article.at_xpath('title').child %></h2></a>
+<p><%= wiki_article.at_xpath('summary').child %></p><br>
